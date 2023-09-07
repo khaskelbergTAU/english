@@ -1,4 +1,9 @@
 import argparse
+import sklearn
+
+def train(train_file: str):
+    
+
 
 
 def label_sentence(sentence):
@@ -46,4 +51,10 @@ def get_args():
 if __name__ == "__main__":
     args = get_args()
     if args.train:
-        train()
+        if args.train_file == "":
+            raise Exception("train file not provided")
+        model = train(args.train_file)
+    else:
+        model = load_model()
+    
+
